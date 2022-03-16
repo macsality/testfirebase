@@ -3,8 +3,9 @@
     margin: auto;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width: 800px;
+    width: 70%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
   }
   
   .styled-table thead tr {

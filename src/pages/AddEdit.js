@@ -55,14 +55,14 @@ const AddEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email || !contact || !status) {
-      toast.error("Please provide value in each input field");
+      toast.error("กรุณากรอกข้อมูลให้ครบถ้วน");
     } else {
       if (!id) {
         fireDb.child("contacts").push(state, (err) => {
           if (err) {
             toast.error(err);
           } else {
-            toast.success("Contact Added Successfully");
+            toast.success("เพิ่มรายการเรียบร้อย");
           }
         });
       } else {
@@ -70,7 +70,7 @@ const AddEdit = () => {
           if (err) {
             toast.error(err);
           } else {
-            toast.success("Contact Updated Successfully");
+            toast.success("อัพเดตรายการเรียบร้อย");
           }
         });
       }
@@ -80,7 +80,9 @@ const AddEdit = () => {
   };
   return (
     <div style={{ marginTop: "100px" }}>
+      <h1 >เพิ่มรายการ</h1>
       <form
+      
         style={{
           margin: "auto",
           padding: "15px",
@@ -89,39 +91,39 @@ const AddEdit = () => {
         }}
         onSubmit={handleSubmit}
       >
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">รายการอาหาร</label>
         <input
           type="text"
           id="name"
           name="name"
-          placeHolder="Your Name..."
+          placeHolder="อยากสั่งอะไรพิมมา"
           value={name || ""}
           onChange={handleInputChange}
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">โต๊ะที่เท่าไร</label>
         <input
-          type="email"
+          type="text"
           id="email"
           name="email"
-          placeHolder="Your Email..."
+          placeHolder="โต๊ะอะไร"
           value={email || ""}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">Contact</label>
+        <label htmlFor="contact">จำนวนที่สั่ง</label>
         <input
           type="number"
           id="contact"
           name="contact"
-          placeHolder="Your Contact No. ..."
+          placeHolder="จำนวนกี่ จาน/ชิ้น/อัน"
           value={contact || ""}
           onChange={handleInputChange}
         />
-        <label htmlFor="name">Status</label>
+        <label htmlFor="name">คำแนะนำเพิ่มเติม</label>
         <input
           type="text"
           id="status"
           name="status"
-          placeHolder="Your Status..."
+          placeHolder="คำร้องขอเพิ่มเติม"
           value={status || ""}
           onChange={handleInputChange}
         />

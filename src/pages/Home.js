@@ -26,13 +26,13 @@ const Home = () => {
 
   const onDelete = (id) => {
     if (
-      window.confirm("Are you sure that you wanted to delete that contact ?")
+      window.confirm("ต้องการลบข้อมูลนี้ใช่หรือไม่")
     ) {
       fireDb.child(`contacts/${id}`).remove((err) => {
         if (err) {
           toast.error(err);
         } else {
-          toast.success("Contact Deleted Successfully");
+          toast.success("ลบข้อมูลเรียบร้อย");
         }
       });
     }
@@ -71,22 +71,23 @@ const Home = () => {
         if (snapshot.val()) {
           const data = snapshot.val();
           setData(data);
-        }
+        } 
       });
   };
   return (
+    <div className="container">
     <div style={{ marginTop: "20px"  }}>
       <div className="container">
-        <label>Sort By:</label>
+        <label>เลียงลำดับตาม :</label>
         <select className="dropdown" name="colValue" onChange={handleChange}>
-          <option>Please Select</option>
-          <option value="name">Name</option>
-          <option value="email">Email</option>
-          <option value="contact">Contact</option>
-          <option value="status">Status</option>
+          <option>เรียงข้อมูล</option>
+          <option value="name">ตามชื่อรายการ</option>
+          <option value="email">ตามโต๊ะ</option>
+          {/* <option value="contact">Contact</option>
+          <option value="status">Status</option> */}
         </select>
         <button className="btn btn-reset" onClick={handleReset}>
-          Reset
+          ล้างฟิลเตอร์
         </button>
         <br />
         <br />
@@ -94,10 +95,10 @@ const Home = () => {
           <thead>
             <tr>
               <th style={{ textAlign: "center" }}>ลำดับ.</th>
-              <th style={{ textAlign: "center" }}>ชื่อผู้สั่ง</th>
+              <th style={{ textAlign: "center" }}>รายการ</th>
               <th style={{ textAlign: "center" }}>Table</th>
-              <th style={{ textAlign: "center" }}>จำนวนรายการ</th>
-              <th style={{ textAlign: "center" }}>Status</th>
+              <th style={{ textAlign: "center" }}>รวมจำนวน</th>
+              {/* <th style={{ textAlign: "center" }}>สถานะ</th> */}
               {!sort && <th style={{ textAlign: "center" }}>Action</th>}
             </tr>
           </thead>
@@ -110,19 +111,19 @@ const Home = () => {
                     <td>{data[id].name}</td>
                     <td>{data[id].email}</td>
                     <td>{data[id].contact}</td>
-                    <td>{data[id].status}</td>
+                    {/* <td>{data[id].status}</td> */}
                     <td>
                       <Link to={`/update/${id}`}>
-                        <button className="btn btn-edit">Edit</button>
+                        <button className="btn btn-edit">แก้ไขรายการ</button>
                       </Link>
                       <button
                         className="btn btn-delete"
                         onClick={() => onDelete(id)}
                       >
-                        Delete
+                        ทำเสร็จแล้ว
                       </button>
                       <Link to={`/view/${id}`}>
-                        <button className="btn btn-view">View</button>
+                        <button className="btn btn-view">ดูรายละเอียด</button>
                       </Link>
                     </td>
                   </tr>
@@ -139,7 +140,7 @@ const Home = () => {
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.contact}</td>
-                    <td>{item.status}</td>
+                    {/* <td>{item.status}</td> */}
                   </tr>
                 );
               })}
@@ -157,6 +158,7 @@ const Home = () => {
       >
         Inactive
       </button> */}
+      </div>
       </div>
     </div>
   );

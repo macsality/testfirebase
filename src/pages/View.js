@@ -26,27 +26,33 @@ const View = () => {
     <div style={{ marginTop: "150px" }}>
       <div className="card">
         <div className="card-header">
-          <p>User Contact Detail</p>
+          <p>รายละเอียดรายการอาหาร</p>
         </div>
         <div className="container">
           <strong>ID: </strong>
           <span>{id}</span>
           <br />
           <br />
-          <strong>Name: </strong>
+          <strong>ชื่อรายการ: </strong>
           <span>{user.name}</span>
           <br />
           <br />
-          <strong>Email: </strong>
+          <strong>โต๊ะที่ : </strong>
           <span>{user.email}</span>
           <br />
           <br />
-          <strong>Contact: </strong>
+          <strong>จำนวนที่สั่ง: </strong>
           <span>{user.contact}</span>
           <br />
           <br />
+          <strong>คำขอพิเศษ: </strong>
+          <span>{user.status}</span>
+          <br />
+          <br />
+        </div>
+        <div className="card-footer">
           <Link to="/">
-            <button className="btn btn-edit">Go Back</button>
+            <button className="btn btn-edit">กลับสู่ห้องครัว</button>
           </Link>
         </div>
       </div>

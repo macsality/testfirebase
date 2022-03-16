@@ -26,7 +26,7 @@ const Header = () => {
   };
   return (
     <div className="header">
-      <p className="logo">Contact App</p>
+      <p className="logo">ระบบห้องครัว,การสั่งอาหาร</p>
       <div className="header-right">
         {/* <form onSubmit={handleSubmit} style={{ display: "inline" }}>
           <input
@@ -42,7 +42,7 @@ const Header = () => {
             className={`${activeTab === "Home" ? "active" : ""}`}
             onClick={() => setActiveTab("Home")}
           >
-            Home
+            หน้าห้องครัว
           </p>
         </Link>
         <Link to="/add">
@@ -50,7 +50,7 @@ const Header = () => {
             className={`${activeTab === "AddContact" ? "active" : ""}`}
             onClick={() => setActiveTab("AddContact")}
           >
-            Add Contact
+            เพิ่มรายการ
           </p>
         </Link>
         {/* <Link to="/about">
